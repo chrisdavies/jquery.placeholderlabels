@@ -1,0 +1,34 @@
+/* This is the CSS I needed for my project.  Mileage may vary. */
+.input-wrapper {
+    position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+    *display: inline; /* ie6&7 */
+    zoom: 1;
+    background: #FFF;
+    vertical-align: top;
+}
+
+.input-wrapper input,
+.input-wrapper textarea {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+.input-wrapper label {
+    z-index: 1;
+    position: absolute;
+    padding: 11px 10px;
+    font-size: 1em;
+    color: #AAA;
+    overflow: hidden;
+}
+
+.input-wrapper.focus label {
+    opacity: 0.6;
+}
+
+.input-wrapper.filled label {
+    display: none;
+}
