@@ -1,4 +1,4 @@
-/* This is the CSS I needed for my project.  Mileage may vary. */
+/* This is the .less I need for my project.  Mileage may vary. */
 .input-wrapper {
     position: relative;
     display: -moz-inline-box;
@@ -7,28 +7,35 @@
     zoom: 1;
     background: #FFF;
     vertical-align: top;
-}
 
-.input-wrapper input,
-.input-wrapper textarea {
-    position: relative;
-    z-index: 2;
-    background: transparent;
-}
+    input,
+    textarea {
+        position: relative;
+        z-index: 2;
+        background: transparent;
+        margin: 0;
+    }
 
-.input-wrapper label {
-    z-index: 1;
-    position: absolute;
-    padding: 11px 10px;
-    font-size: 1em;
-    color: #AAA;
-    overflow: hidden;
-}
+    label {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 1em;
+        margin-top: -.5em;
+        text-align: left;
+        font-size: 1em;
+        color: #AAA;
+        overflow: hidden;
+        padding-left: 14px;
+        cursor: text;
+    }
 
-.input-wrapper.focus label {
-    opacity: 0.6;
-}
+    &.input-wrapper.focus label {
+        opacity: 0.6;
+    }
 
-.input-wrapper.filled label {
-    display: none;
+    &.input-wrapper.filled label {
+        display: none;
+    }
 }
