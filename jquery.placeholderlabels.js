@@ -32,7 +32,7 @@
     $(function () {
         $('input[placeholder], textarea[placeholder]').each(function () {
             var me = $(this);
-            var lbl = $('<label></label>').text(me.attr('placeholder'));
+            var lbl = $('<label></label>').text(me.attr('placeholder')).click(function () { me.focus(); });
             me.removeAttr('placeholder').wrap('<div class="input-wrapper" />').parent().prepend(lbl);
         });
 
