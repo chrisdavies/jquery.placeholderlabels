@@ -30,12 +30,15 @@
     };
 
     $(function () {
-        $('input[placeholder], textarea[placeholder]').each(function () {
-            var me = $(this);
-            var lbl = $('<label></label>').text(me.attr('placeholder')).click(function () { me.focus(); });
-            me.removeAttr('placeholder').wrap('<div class="input-wrapper" />').parent().prepend(lbl);
-        });
-
-        $('input, textarea', parentSelector).live('focus', focus).live('blur', blur).live('keyup', update).live('click', update).live('keydown', keydown).placeholderlabels();
+		// only simulate placeholders if they are not supported:
+		if (document.createElement("input").placeholder == undefined) {
+            $('input[placeholder], textarea[placeholder]').each(function () {
+                var me = $(this);
+                var lbl = $('<label></label>').text(me.attr('placeholder')).click(function () { me.focus(); });
+                me.removeAttr('placeholder').wrap('<div class="input-wrapper" />').parent().prepend(lbl);
+            });
+    
+            $('input, textarea', parentSelector).on('focus', focus).on('blur', blur).on('keyup', update).on('click', update).on('keydown', keydown).placeholderlabels();
+		}
     });
 })(jQuery);
