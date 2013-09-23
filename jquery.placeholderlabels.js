@@ -30,8 +30,8 @@
     };
 
     $(function () {
-		// only simulate placeholders if they are not supported:
-		if (document.createElement("input").placeholder == undefined) {
+        // only simulate placeholders if they are not supported:
+        if (document.createElement("input").placeholder === undefined) {
             $('input[placeholder], textarea[placeholder]').each(function () {
                 var me = $(this);
                 var lbl = $('<label></label>').text(me.attr('placeholder')).click(function () { me.focus(); });
@@ -39,6 +39,6 @@
             });
     
             $('input, textarea', parentSelector).on('focus', focus).on('blur', blur).on('keyup', update).on('click', update).on('keydown', keydown).placeholderlabels();
-		}
+        }
     });
 })(jQuery);
