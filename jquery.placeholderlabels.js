@@ -19,27 +19,41 @@
     function blur() {
         update.call(this).removeClass('focus');
     }
+
+    function placeholdersSupported() {
+        return document.createElement("input").placeholder !== undefined;
+    }
+
     var i = 0;
     function keydown(evt) {
         var c = evt.keyCode;
         ((47 < c && c < 91) || (95 < c && c < 112) || (185 < c && c < 223)) && update.call(this, true);
     }
-
-    $.fn.placeholderlabels = function () {
+    
+    $.fn.updateplaceholderlabel = function () {
         return this.each(update);
     };
 
-    $(function () {
-        // only simulate placeholders if they are not supported:
-        if (document.createElement("input").placeholder === undefined) {
-            $('input[placeholder], textarea[placeholder]').each(function () {
+    $.fn.placeholderlabels = function () {
+        if (!placeholdersSupported()) {
+            this.each(function () {
                 var me = $(this);
                 var lbl = $('<label></label>').text(me.attr('placeholder')).click(function () { me.focus(); });
                 me.get(0).removeAttribute('placeholder');
                 me.wrap('<div class="input-wrapper" />').parent().prepend(lbl);
             });
-    
-            $('input, textarea', parentSelector).on('focus', focus).on('blur', blur).on('keyup', update).on('click', update).on('keydown', keydown).placeholderlabels();
+
+            this.on('changeDate', function () {
+                alert('here!');
+            });
+
+            this.on('focus', focus).on('blur', blur).on('input keyup', update).on('click', update).on('keydown', keydown).updateplaceholderlabel();
         }
+
+        return this;
+    };
+    
+    $(function () {
+        $('input[placeholder], textarea[placeholder]').placeholderlabels();
     });
 })(jQuery);

@@ -5,5 +5,9 @@ I needed slight variations.  This is the result.
 
 Thanks to Peter Coles (http://mrcoles.com/blog/persistent-placeholders-tutorial-focus/)
 
-# Usage
+# jQuery Usage
 Including the js file in an html document will automatically apply to any input/textarea which has a placeholder attribute specified.
+
+# Angular Usage
+Include module 'placeholderlabels' in your app.js
+Include jQuery, and all of the placeholder labels js files in your project.

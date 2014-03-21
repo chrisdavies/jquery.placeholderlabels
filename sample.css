@@ -20,14 +20,15 @@
 .input-wrapper label {
     z-index: 1;
     position: absolute;
+    font-weight: normal;
     top: 50%;
     left: 0;
-    height: 1em;
-    margin-top: -.5em;
+    min-height: 1em;
+    margin-top: -.6em;
     text-align: left;
     font-size: 1em;
     color: #AAA;
-    overflow: hidden;
+    overflow-x: hidden;
     padding-left: 14px;
     cursor: text;
 }
